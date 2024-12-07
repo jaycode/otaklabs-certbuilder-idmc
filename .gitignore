@@ -1,0 +1,6 @@
+*.jpg
+*.csv
+*.xlsx
+*.pdf
+3.create_certificates/certificates-page1/*.png
+2.prepare_data/*.png
