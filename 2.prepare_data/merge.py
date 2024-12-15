@@ -6,7 +6,7 @@ df = pd.read_csv(file_path)
 
 # Correct the filtering to match the date format in the dataset
 old_data = df[df['Date'] == '11/3/2024'].copy()
-new_data = df[df['Date'] == '11/24/2024'].copy()
+new_data = df[(df['Date'] == '11/24/2024') | (df['Date'] == '') | (pd.isna(df['Date']))].copy()
 
 # Rename columns to add "Old" or "New" prefix
 old_data = old_data.add_prefix('Old ')
@@ -28,7 +28,7 @@ columns_order = ['Old ID', 'New ID', 'Old Date', 'Old Start Time', 'Old End Time
                  'New Date', 'New Start Time', 'New End Time']
 
 # Extract unique feature names excluding the "Old " or "New " prefix
-features = ['ID', 'Duration', 'Mind', 'Stillness', 
+features = ['Duration', 'Mind', 'Stillness', 
             'HR (avg bpm)', 'Muse Points', 'Recoveries', 'Birds']
 
 # Append the columns in the desired order: "Old feature", "New feature"
